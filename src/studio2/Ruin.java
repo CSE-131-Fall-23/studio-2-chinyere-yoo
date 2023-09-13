@@ -15,16 +15,13 @@ public class Ruin {
 		int currentAmount = startAmount;
 		System.out.println("Simulation times: ");
 		int totalSimulations = in.nextInt();
-		
-		// Count = number of plays
 		int count = 0;
-		int i = 1;
+		// Count = number of plays
 		
 		
-		
-		for (i = 1; i <= totalSimulations; i++) {
-			
+		for (int i = 1; i < totalSimulations + 1; i++) {
 		while (currentAmount > 0 && currentAmount < winLimit) {
+			
 		double Chance = Math.random(); 
 		if (Chance < winChance) {
 			currentAmount = currentAmount + 1;
@@ -32,14 +29,17 @@ public class Ruin {
 		}
 		else if (Chance > winChance) {
 			currentAmount = currentAmount - 1;
-			count = count + 1;	
+			count = count + 1;
 		}
-			
-		// Simulations or number of gambling days
-		}
+	
 		if (currentAmount == winLimit) {
 			System.out.println("Simulation " + i + ": " + count + " WIN");
 		}
 		else if (currentAmount == 0) {
 			System.out.println("Simulation " + i + ": " + count + " LOSE");
-		}}}}
+		
+			}
+		}
+		count = 0;
+		currentAmount = startAmount;
+		}}}
