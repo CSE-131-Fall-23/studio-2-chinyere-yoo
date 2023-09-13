@@ -13,22 +13,33 @@ public class Ruin {
 		System.out.println("Win limit: ");
 		double winLimit = in.nextDouble();
 		int currentAmount = startAmount;
+		System.out.println("Simulation times: ");
+		int totalSimulations = in.nextInt();
+		
+		// Count = number of plays
+		int count = 0;
+		int i = 1;
 		
 		
+		
+		for (i = 1; i <= totalSimulations; i++) {
+			
 		while (currentAmount > 0 && currentAmount < winLimit) {
 		double Chance = Math.random(); 
 		if (Chance < winChance) {
 			currentAmount = currentAmount + 1;
-			System.out.println("You won");
-			System.out.println("Current amount: " + "$" + currentAmount);
+			count = count + 1;
 		}
-		if (Chance > winChance) {
+		else if (Chance > winChance) {
 			currentAmount = currentAmount - 1;
-			System.out.println("You lost");
-			System.out.println("Current amount: " + "$" + currentAmount);
-			
-			// Simulations
-			
-			
+			count = count + 1;	
 		}
-		}}}
+			
+		// Simulations or number of gambling days
+		}
+		if (currentAmount == winLimit) {
+			System.out.println("Simulation " + i + ": " + count + " WIN");
+		}
+		else if (currentAmount == 0) {
+			System.out.println("Simulation " + i + ": " + count + " LOSE");
+		}}}}
